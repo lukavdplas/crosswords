@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<script>console.log("kruiswoorden!");</script>
+    <meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, user-scalable=no"/>
+	<meta name="theme-color" content="#f5cc5d"/>
+	<meta name="description" content="Send your pictures to the world's fastest photo printer!"/>
+    <title>kruiswoorden van luka</title>
+	<style>
+		body {
+			background-color: #ffedb8;
+			margin: 0px;
+		}
+		#titlecontainer {
+			letter-spacing: 3px;
+			background-color: #f5cc5d;
+			font-family: sans-serif;
+		}
+		h1 {
+			font-weight: normal;
+		}
+
+		#gridcontainer {
+			float: left;
+			width: auto;
+		}
+
+		#crosswordcontainer {
+			padding: 20px;
+			margin-top: 20px;
+			overflow: hidden;
+			background-color: white;
+		}
+
+		#crossword {
+			padding: 12px;
+			border: 1px solid grey;
+			background-color: white;
+			margin-bottom: 10px;
+		}
+
+		#formcontainer {
+			overflow-x: hidden;
+		}
+
+		#cluescontainer {
+			float: right;
+			width: 250px;
+			font-size: 12px;
+		}
+
+		#clueshorizontal {
+			width: 50%;
+			padding: 10px;
+			text-align: left;
+		}
+
+		#cluesvertical {
+			width: 50%;
+			padding: 10px;
+			text-align: left;
+		}
+
+		#explain {
+			text-decoration: underline;
+			font-family: sans-serif;
+			margin-top: 400px;
+			padding-bottom: 50px;
+		}
+
+		#explain a {
+			color: black;
+			opacity: .6;
+		}
+	</style>
+</head>
+<body>
+	<div style="width: 100%; overflow: hidden;" id="titlecontainer">
+		<div style="margin: 0 auto; height: 80px; padding-top: 30px; padding-bottom: 20px; align-content: center; text-align: center;">
+			<div style="position: relative; ">
+				<div style="position: absolute; width: 100%;"><h1>kruiswoorden van luka</h1></div>
+			</div>
+		</div>
+	</div>
+	<div style="margin: 0 auto; width: 80%; align-content: center; text-align: center;">
+		<div id="crosswordcontainer">
+			<div id ="gridcontainer">
+				<div id="crossword">
+					kruiswoord hier
+				</div>
+				<div id="formcontainer">
+					<form id="leform">
+						<input id="controleer_button" type="submit" value='controleer'>
+						<input id="oplossing_button" type="submit" value='oplossing tonen'>
+					</form>
+				</div>
+			</div>
+			<div id = "cluescontainer">
+				<div id = "clueshorizontal">
+					Horizontaal
+					<ol>
+						<li>woordje!</li>
+					</ol>
+				</div>
+				<div id = "cluesvertical">
+					Verticaal
+					<ol>
+						<li>woordje!</li>
+					</ol>
+				</div>
+			</div>
+		</div>
+		<div id="explain">
+			<a href="https://github.com/lukavdplas/crossword-maker">Waar komen kruiswoorden vandaan?</a>
+		</div>
+	</div>
+
+
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script>
+		$(document).ready(function () {
+			console.log("hoi!!! als je een CORS (cross-origin) error krijgt (die krijg je niet als deze website op github pages staat), gebruik dan deze hack om CORS tijdelijk uit te zetten in Chrome: https://alfilatov.com/posts/run-chrome-without-cors/");
+
+			document.getElementById("hoiknop").onclick = function () {
+				alert("hoii");
+			};
+
+			var xhttp = new XMLHttpRequest();
+			xhttp.onreadystatechange = function() {
+				if (this.readyState == 4) {
+				   var xwordDOMobject = this.responseXML.documentElement;
+
+				   // Kijk in de (supercoole!) chrome console naar dit object
+				   console.log(xwordDOMobject);
+
+				   console.log(xwordDOMobject.children);
+
+				   document.getElementById("receipt").appendChild(xwordDOMobject);
+
+
+				}
+			};
+			xhttp.open("GET", "crosswords/test.xml", true);
+			xhttp.send();
+			document.xxx = xhttp
+		});
+
+	</script>
+</body>
+</html>
